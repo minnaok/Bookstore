@@ -1,45 +1,60 @@
 package fi.oksa.Bookstore.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
+@Entity
 public class Book {
 
-	private Integer year, isbn, price;
-	private String title, author;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long id;
+	
+	private String isbn, title, author;
+	private int year;
+	private double price;
 
 	
 	public Book() {
 		super();
 	}
 
-	public Book(Integer year, Integer isbn, Integer price, String title, String author) {
+	public Book(String isbn, String author, String title, int year, double price) {
 		super();
-		this.year = year;
 		this.isbn = isbn;
-		this.price = price;
-		this.title = title;
 		this.author = author;
+		this.title = title;
+		this.year = year;
+		this.price = price;
+		
+	}
+	public long getId() {
+		return id;
+	
 	}
 
-	public Integer getYear() {
+	public int getYear() {
 		return year;
 	}
 
-	public void setYear(Integer year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
-	public Integer getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(Integer isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	public Integer getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -61,10 +76,9 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [year=" + year + ", isbn=" + isbn + ", price=" + price + ", title=" + title + ", author=" + author + "]";
+		return "Book [id=" + id + ", isbn=" + isbn + ", author=" + author + ", title=" + title + ", year=" + year + ", price=" + price + "]";
 	}
 	
 	
 }
-	
 
