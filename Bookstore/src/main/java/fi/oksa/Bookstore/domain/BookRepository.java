@@ -8,11 +8,9 @@ public interface BookRepository extends CrudRepository<Book, Long> {
 
 	List<Book> findByAuthor(String author);
 
-	static Object getOne(long id) {
-		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 	
-	}
+	
 
